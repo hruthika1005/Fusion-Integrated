@@ -1,0 +1,1118 @@
+[
+  {
+    "wf": "BW-PMS-01",
+    "n": 1,
+    "frm": "Draft / Not Submitted",
+    "actor": "Applicant",
+    "uc": "UC-PMS-001 / Submit Patent Application",
+    "guard": "Submission passes completeness/document validation",
+    "to": "Submitted",
+    "br": "BR-PMS-014; BR-PMS-015; BR-PMS-016; BR-PMS-017",
+    "brs": [
+      "BR-PMS-014",
+      "BR-PMS-015",
+      "BR-PMS-016",
+      "BR-PMS-017"
+    ]
+  },
+  {
+    "wf": "BW-PMS-01",
+    "n": 2,
+    "frm": "Submitted",
+    "actor": "PCC_ADMIN",
+    "uc": "UC-PMS-007 / Assign Application to Director",
+    "guard": "Eligible Director selected or valid automatic routing succeeds",
+    "to": "Under Review",
+    "br": "BR-PMS-022; BR-PMS-023; BR-PMS-024; BR-PMS-025; BR-PMS-026; BR-PMS-027",
+    "brs": [
+      "BR-PMS-022",
+      "BR-PMS-023",
+      "BR-PMS-024",
+      "BR-PMS-025",
+      "BR-PMS-026",
+      "BR-PMS-027"
+    ]
+  },
+  {
+    "wf": "BW-PMS-01",
+    "n": 3,
+    "frm": "Under Review",
+    "actor": "Director",
+    "uc": "UC-PMS-008 / Review Patent Application",
+    "guard": "Decision = Approve; justification >=50 characters; review within deadline",
+    "to": "Approved",
+    "br": "BR-PMS-029; BR-PMS-030; BR-PMS-031",
+    "brs": [
+      "BR-PMS-029",
+      "BR-PMS-030",
+      "BR-PMS-031"
+    ]
+  },
+  {
+    "wf": "BW-PMS-02",
+    "n": 1,
+    "frm": "Under Review",
+    "actor": "Director",
+    "uc": "UC-PMS-008 / Review Patent Application",
+    "guard": "Decision = Needs Revision; valid justification",
+    "to": "Needs Revision",
+    "br": "BR-PMS-029; BR-PMS-030; BR-PMS-031",
+    "brs": [
+      "BR-PMS-029",
+      "BR-PMS-030",
+      "BR-PMS-031"
+    ]
+  },
+  {
+    "wf": "BW-PMS-02",
+    "n": 2,
+    "frm": "Needs Revision",
+    "actor": "Applicant",
+    "uc": "UC-PMS-005 / Revise and Resubmit Application",
+    "guard": "Within 60 days; revision addresses feedback",
+    "to": "Resubmitted",
+    "br": "BR-PMS-033; BR-PMS-035; BR-PMS-036; BR-PMS-087",
+    "brs": [
+      "BR-PMS-033",
+      "BR-PMS-035",
+      "BR-PMS-036",
+      "BR-PMS-087"
+    ]
+  },
+  {
+    "wf": "BW-PMS-02",
+    "n": 3,
+    "frm": "Resubmitted",
+    "actor": "PCC_ADMIN",
+    "uc": "UC-PMS-007 / Assign Application to Director",
+    "guard": "Valid assignment/reassignment",
+    "to": "Under Review",
+    "br": "BR-PMS-023; BR-PMS-024; BR-PMS-025; BR-PMS-026",
+    "brs": [
+      "BR-PMS-023",
+      "BR-PMS-024",
+      "BR-PMS-025",
+      "BR-PMS-026"
+    ]
+  },
+  {
+    "wf": "BW-PMS-02",
+    "n": 4,
+    "frm": "Under Review",
+    "actor": "Director",
+    "uc": "UC-PMS-008 / Review Patent Application",
+    "guard": "Decision = Approve",
+    "to": "Approved",
+    "br": "BR-PMS-029; BR-PMS-030; BR-PMS-031",
+    "brs": [
+      "BR-PMS-029",
+      "BR-PMS-030",
+      "BR-PMS-031"
+    ]
+  },
+  {
+    "wf": "BW-PMS-03",
+    "n": 1,
+    "frm": "Under Review",
+    "actor": "Director",
+    "uc": "UC-PMS-008 / Review Patent Application",
+    "guard": "Decision = Reject; valid justification",
+    "to": "Rejected",
+    "br": "BR-PMS-029; BR-PMS-030; BR-PMS-031",
+    "brs": [
+      "BR-PMS-029",
+      "BR-PMS-030",
+      "BR-PMS-031"
+    ]
+  },
+  {
+    "wf": "BW-PMS-03",
+    "n": 2,
+    "frm": "Rejected",
+    "actor": "Applicant",
+    "uc": "UC-PMS-022 / File Appeal Against Rejection",
+    "guard": "Appeal filed within allowed period with grounds/justification",
+    "to": "Appeal Submitted",
+    "br": "BR-PMS-092; BR-PMS-093; BR-PMS-094",
+    "brs": [
+      "BR-PMS-092",
+      "BR-PMS-093",
+      "BR-PMS-094"
+    ]
+  },
+  {
+    "wf": "BW-PMS-03",
+    "n": 3,
+    "frm": "Appeal Submitted",
+    "actor": "Director",
+    "uc": "UC-PMS-023 / Review Appeal",
+    "guard": "Appeal outcome = Remand for Amendment",
+    "to": "Remanded for Amendment",
+    "br": "BR-PMS-095",
+    "brs": [
+      "BR-PMS-095"
+    ]
+  },
+  {
+    "wf": "BW-PMS-04",
+    "n": 1,
+    "frm": "Under Review",
+    "actor": "Director",
+    "uc": "UC-PMS-008 / Review Patent Application",
+    "guard": "Decision = Reject; valid justification",
+    "to": "Rejected",
+    "br": "BR-PMS-029; BR-PMS-030; BR-PMS-031",
+    "brs": [
+      "BR-PMS-029",
+      "BR-PMS-030",
+      "BR-PMS-031"
+    ]
+  },
+  {
+    "wf": "BW-PMS-04",
+    "n": 2,
+    "frm": "Rejected",
+    "actor": "Applicant",
+    "uc": "UC-PMS-022 / File Appeal Against Rejection",
+    "guard": "Appeal filed within allowed period with grounds/justification",
+    "to": "Appeal Submitted",
+    "br": "BR-PMS-092; BR-PMS-093; BR-PMS-094",
+    "brs": [
+      "BR-PMS-092",
+      "BR-PMS-093",
+      "BR-PMS-094"
+    ]
+  },
+  {
+    "wf": "BW-PMS-04",
+    "n": 3,
+    "frm": "Appeal Submitted",
+    "actor": "Director",
+    "uc": "UC-PMS-023 / Review Appeal",
+    "guard": "Appeal outcome = Uphold Rejection",
+    "to": "Rejection Upheld",
+    "br": "BR-PMS-095",
+    "brs": [
+      "BR-PMS-095"
+    ]
+  },
+  {
+    "wf": "BW-PMS-05",
+    "n": 1,
+    "frm": "Under Review",
+    "actor": "Director",
+    "uc": "UC-PMS-008 / Review Patent Application",
+    "guard": "Decision = Reject; valid justification",
+    "to": "Rejected",
+    "br": "BR-PMS-029; BR-PMS-030; BR-PMS-031",
+    "brs": [
+      "BR-PMS-029",
+      "BR-PMS-030",
+      "BR-PMS-031"
+    ]
+  },
+  {
+    "wf": "BW-PMS-05",
+    "n": 2,
+    "frm": "Rejected",
+    "actor": "Applicant",
+    "uc": "UC-PMS-022 / File Appeal Against Rejection",
+    "guard": "Appeal filed within allowed period with grounds/justification",
+    "to": "Appeal Submitted",
+    "br": "BR-PMS-092; BR-PMS-093; BR-PMS-094",
+    "brs": [
+      "BR-PMS-092",
+      "BR-PMS-093",
+      "BR-PMS-094"
+    ]
+  },
+  {
+    "wf": "BW-PMS-05",
+    "n": 3,
+    "frm": "Appeal Submitted",
+    "actor": "Director",
+    "uc": "UC-PMS-023 / Review Appeal",
+    "guard": "Appeal outcome = Modify Decision",
+    "to": "Decision Modified",
+    "br": "BR-PMS-095",
+    "brs": [
+      "BR-PMS-095"
+    ]
+  },
+  {
+    "wf": "BW-PMS-06",
+    "n": 1,
+    "frm": "Approved",
+    "actor": "PCC_ADMIN",
+    "uc": "UC-PMS-010 / Assign Attorney to Approved Application",
+    "guard": "Assignment satisfies panel/expertise/workload/conflict/preference rules",
+    "to": "Assignment Offered",
+    "br": "BR-PMS-040; BR-PMS-041; BR-PMS-042; BR-PMS-043; BR-PMS-044; BR-PMS-045; BR-PMS-127",
+    "brs": [
+      "BR-PMS-040",
+      "BR-PMS-041",
+      "BR-PMS-042",
+      "BR-PMS-043",
+      "BR-PMS-044",
+      "BR-PMS-045",
+      "BR-PMS-127"
+    ]
+  },
+  {
+    "wf": "BW-PMS-06",
+    "n": 2,
+    "frm": "Assignment Offered",
+    "actor": "Attorney",
+    "uc": "UC-PMS-011 / Accept or Decline Attorney Assignment",
+    "guard": "Outcome = Accept",
+    "to": "Attorney Assigned",
+    "br": "N/A",
+    "brs": []
+  },
+  {
+    "wf": "BW-PMS-07",
+    "n": 1,
+    "frm": "Approved",
+    "actor": "PCC_ADMIN",
+    "uc": "UC-PMS-010 / Assign Attorney to Approved Application",
+    "guard": "Valid initial assignment",
+    "to": "Assignment Offered",
+    "br": "BR-PMS-040; BR-PMS-041; BR-PMS-044; BR-PMS-127",
+    "brs": [
+      "BR-PMS-040",
+      "BR-PMS-041",
+      "BR-PMS-044",
+      "BR-PMS-127"
+    ]
+  },
+  {
+    "wf": "BW-PMS-07",
+    "n": 2,
+    "frm": "Assignment Offered",
+    "actor": "Attorney",
+    "uc": "UC-PMS-011 / Accept or Decline Attorney Assignment",
+    "guard": "Outcome = Decline",
+    "to": "Pending Review",
+    "br": "N/A",
+    "brs": []
+  },
+  {
+    "wf": "BW-PMS-07",
+    "n": 3,
+    "frm": "Pending Review",
+    "actor": "PCC_ADMIN",
+    "uc": "UC-PMS-010 / Assign Attorney to Approved Application",
+    "guard": "Valid reassignment to another eligible Attorney",
+    "to": "Assignment Offered",
+    "br": "BR-PMS-040; BR-PMS-041; BR-PMS-042; BR-PMS-043; BR-PMS-044; BR-PMS-045",
+    "brs": [
+      "BR-PMS-040",
+      "BR-PMS-041",
+      "BR-PMS-042",
+      "BR-PMS-043",
+      "BR-PMS-044",
+      "BR-PMS-045"
+    ]
+  },
+  {
+    "wf": "BW-PMS-07",
+    "n": 4,
+    "frm": "Assignment Offered",
+    "actor": "Attorney",
+    "uc": "UC-PMS-011 / Accept or Decline Attorney Assignment",
+    "guard": "Outcome = Accept",
+    "to": "Attorney Assigned",
+    "br": "N/A",
+    "brs": []
+  },
+  {
+    "wf": "BW-PMS-08",
+    "n": 1,
+    "frm": "Approved",
+    "actor": "Director",
+    "uc": "UC-PMS-009 / Review and Decide Patent Budget",
+    "guard": "Cost within applicable threshold; budget availability validated where data exists; outcome = Approve",
+    "to": "Budget Approved",
+    "br": "BR-PMS-048; BR-PMS-049; BR-PMS-050; BR-PMS-052; BR-PMS-053",
+    "brs": [
+      "BR-PMS-048",
+      "BR-PMS-049",
+      "BR-PMS-050",
+      "BR-PMS-052",
+      "BR-PMS-053"
+    ]
+  },
+  {
+    "wf": "BW-PMS-09",
+    "n": 1,
+    "frm": "Approved",
+    "actor": "Director",
+    "uc": "UC-PMS-009 / Review and Decide Patent Budget",
+    "guard": "Outcome = Reject",
+    "to": "Budget Rejected",
+    "br": "BR-PMS-052",
+    "brs": [
+      "BR-PMS-052"
+    ]
+  },
+  {
+    "wf": "BW-PMS-10",
+    "n": 1,
+    "frm": "Approved",
+    "actor": "Director",
+    "uc": "UC-PMS-009 / Review and Decide Patent Budget",
+    "guard": "Total cost exceeds configured threshold",
+    "to": "Escalated",
+    "br": "BR-PMS-051; BR-PMS-052",
+    "brs": [
+      "BR-PMS-051",
+      "BR-PMS-052"
+    ]
+  },
+  {
+    "wf": "BW-PMS-10",
+    "n": 2,
+    "frm": "Escalated",
+    "actor": "PCC_ADMIN",
+    "uc": "UC-PMS-027 / Monitor Workflow and Handle Exceptional Cases",
+    "guard": "Handle/route the exceptional case within PMS scope",
+    "to": "Escalation Tracked / External Decision Pending",
+    "br": "BR-PMS-051",
+    "brs": [
+      "BR-PMS-051"
+    ]
+  },
+  {
+    "wf": "BW-PMS-11",
+    "n": 1,
+    "frm": "Pre-Filing Preconditions Satisfied",
+    "actor": "Attorney",
+    "uc": "UC-PMS-013 / Prepare and Record External Patent Filing",
+    "guard": "Required approvals and budget complete; inventor agreements complete; applicable format rules satisfied; international justification if needed",
+    "to": "Filed",
+    "br": "BR-PMS-020; BR-PMS-055; BR-PMS-056; BR-PMS-128; BR-PMS-138; BR-PMS-142",
+    "brs": [
+      "BR-PMS-020",
+      "BR-PMS-055",
+      "BR-PMS-056",
+      "BR-PMS-128",
+      "BR-PMS-138",
+      "BR-PMS-142"
+    ]
+  },
+  {
+    "wf": "BW-PMS-12",
+    "n": 1,
+    "frm": "Filed / Post-Filing Active",
+    "actor": "Attorney",
+    "uc": "UC-PMS-014 / Record Patent Office Communication",
+    "guard": "Official communication is an office action",
+    "to": "Office Action Recorded",
+    "br": "BR-PMS-138; BR-PMS-142",
+    "brs": [
+      "BR-PMS-138",
+      "BR-PMS-142"
+    ]
+  },
+  {
+    "wf": "BW-PMS-12",
+    "n": 2,
+    "frm": "Office Action Recorded",
+    "actor": "Attorney",
+    "uc": "UC-PMS-015 / Respond to Office Action",
+    "guard": "Applicant review is required; draft prepared",
+    "to": "Awaiting Applicant Approval",
+    "br": "BR-PMS-146; BR-PMS-066",
+    "brs": [
+      "BR-PMS-146",
+      "BR-PMS-066"
+    ]
+  },
+  {
+    "wf": "BW-PMS-12",
+    "n": 3,
+    "frm": "Awaiting Applicant Approval",
+    "actor": "Applicant",
+    "uc": "UC-PMS-029 / Review Office-Action Response",
+    "guard": "Applicant records approval",
+    "to": "Applicant Approved",
+    "br": "BR-PMS-146",
+    "brs": [
+      "BR-PMS-146"
+    ]
+  },
+  {
+    "wf": "BW-PMS-12",
+    "n": 4,
+    "frm": "Applicant Approved",
+    "actor": "Attorney",
+    "uc": "UC-PMS-015 / Respond to Office Action",
+    "guard": "Response finalized and recorded submitted within deadline or permitted extension",
+    "to": "Response Submitted",
+    "br": "BR-PMS-065; BR-PMS-066",
+    "brs": [
+      "BR-PMS-065",
+      "BR-PMS-066"
+    ]
+  },
+  {
+    "wf": "BW-PMS-13",
+    "n": 1,
+    "frm": "Filed / Post-Filing Active",
+    "actor": "Attorney",
+    "uc": "UC-PMS-014 / Record Patent Office Communication",
+    "guard": "Official communication is an office action",
+    "to": "Office Action Recorded",
+    "br": "BR-PMS-138; BR-PMS-142",
+    "brs": [
+      "BR-PMS-138",
+      "BR-PMS-142"
+    ]
+  },
+  {
+    "wf": "BW-PMS-13",
+    "n": 2,
+    "frm": "Office Action Recorded",
+    "actor": "Attorney",
+    "uc": "UC-PMS-015 / Respond to Office Action",
+    "guard": "Applicant review not required; draft finalized",
+    "to": "Response Ready",
+    "br": "BR-PMS-146; BR-PMS-066",
+    "brs": [
+      "BR-PMS-146",
+      "BR-PMS-066"
+    ]
+  },
+  {
+    "wf": "BW-PMS-13",
+    "n": 3,
+    "frm": "Response Ready",
+    "actor": "Attorney",
+    "uc": "UC-PMS-015 / Respond to Office Action",
+    "guard": "Response recorded submitted within deadline or permitted extension",
+    "to": "Response Submitted",
+    "br": "BR-PMS-065; BR-PMS-066",
+    "brs": [
+      "BR-PMS-065",
+      "BR-PMS-066"
+    ]
+  },
+  {
+    "wf": "BW-PMS-14",
+    "n": 1,
+    "frm": "Granted / Maintenance Cycle Active",
+    "actor": "Attorney",
+    "uc": "UC-PMS-017 / Manage Post-Grant Tracking and Maintenance",
+    "guard": "Maintenance decision is due",
+    "to": "Renewal Decision Requested",
+    "br": "BR-PMS-059; BR-PMS-060; BR-PMS-061",
+    "brs": [
+      "BR-PMS-059",
+      "BR-PMS-060",
+      "BR-PMS-061"
+    ]
+  },
+  {
+    "wf": "BW-PMS-14",
+    "n": 2,
+    "frm": "Renewal Decision Requested",
+    "actor": "Director",
+    "uc": "UC-PMS-018 / Make Maintenance Renewal Decision",
+    "guard": "Outcome = Renew",
+    "to": "Renewal Approved",
+    "br": "BR-PMS-061",
+    "brs": [
+      "BR-PMS-061"
+    ]
+  },
+  {
+    "wf": "BW-PMS-14",
+    "n": 3,
+    "frm": "Renewal Approved",
+    "actor": "Attorney",
+    "uc": "UC-PMS-017 / Manage Post-Grant Tracking and Maintenance",
+    "guard": "Maintenance action recorded; next cycle scheduled",
+    "to": "Renewed / Next Cycle Scheduled",
+    "br": "BR-PMS-060",
+    "brs": [
+      "BR-PMS-060"
+    ]
+  },
+  {
+    "wf": "BW-PMS-15",
+    "n": 1,
+    "frm": "Granted / Maintenance Cycle Active",
+    "actor": "Attorney",
+    "uc": "UC-PMS-017 / Manage Post-Grant Tracking and Maintenance",
+    "guard": "Maintenance decision is due",
+    "to": "Renewal Decision Requested",
+    "br": "BR-PMS-059; BR-PMS-060; BR-PMS-061",
+    "brs": [
+      "BR-PMS-059",
+      "BR-PMS-060",
+      "BR-PMS-061"
+    ]
+  },
+  {
+    "wf": "BW-PMS-15",
+    "n": 2,
+    "frm": "Renewal Decision Requested",
+    "actor": "Director",
+    "uc": "UC-PMS-018 / Make Maintenance Renewal Decision",
+    "guard": "Outcome = Do Not Renew",
+    "to": "Do Not Renew",
+    "br": "BR-PMS-061",
+    "brs": [
+      "BR-PMS-061"
+    ]
+  },
+  {
+    "wf": "BW-PMS-16",
+    "n": 1,
+    "frm": "Any configured withdrawal-eligible pre-filing state",
+    "actor": "Applicant",
+    "uc": "UC-PMS-006 / Withdraw Patent Application",
+    "guard": "Before filing; current status is withdrawal-eligible; reason provided; co-inventor consent if required",
+    "to": "Withdrawn",
+    "br": "BR-PMS-067; BR-PMS-068; BR-PMS-069; BR-PMS-070",
+    "brs": [
+      "BR-PMS-067",
+      "BR-PMS-068",
+      "BR-PMS-069",
+      "BR-PMS-070"
+    ]
+  },
+  {
+    "wf": "CW-PMS-01",
+    "n": 1,
+    "frm": "Draft / Not Submitted",
+    "actor": "Applicant",
+    "uc": "UC-PMS-001 / Submit Patent Application",
+    "guard": "Valid submission",
+    "to": "Submitted",
+    "br": "BR-PMS-014; BR-PMS-015; BR-PMS-016; BR-PMS-017",
+    "brs": [
+      "BR-PMS-014",
+      "BR-PMS-015",
+      "BR-PMS-016",
+      "BR-PMS-017"
+    ]
+  },
+  {
+    "wf": "CW-PMS-01",
+    "n": 2,
+    "frm": "Submitted",
+    "actor": "PCC_ADMIN",
+    "uc": "UC-PMS-007 / Assign Application to Director",
+    "guard": "Valid assignment",
+    "to": "Under Review",
+    "br": "BR-PMS-023; BR-PMS-024; BR-PMS-025; BR-PMS-026",
+    "brs": [
+      "BR-PMS-023",
+      "BR-PMS-024",
+      "BR-PMS-025",
+      "BR-PMS-026"
+    ]
+  },
+  {
+    "wf": "CW-PMS-01",
+    "n": 3,
+    "frm": "Under Review",
+    "actor": "Director",
+    "uc": "UC-PMS-008 / Review Patent Application",
+    "guard": "Approve",
+    "to": "Approved",
+    "br": "BR-PMS-029; BR-PMS-030; BR-PMS-031",
+    "brs": [
+      "BR-PMS-029",
+      "BR-PMS-030",
+      "BR-PMS-031"
+    ]
+  },
+  {
+    "wf": "CW-PMS-01",
+    "n": 4,
+    "frm": "Under Review",
+    "actor": "Director",
+    "uc": "UC-PMS-008 / Review Patent Application",
+    "guard": "Needs Revision",
+    "to": "Needs Revision",
+    "br": "BR-PMS-029; BR-PMS-030; BR-PMS-031",
+    "brs": [
+      "BR-PMS-029",
+      "BR-PMS-030",
+      "BR-PMS-031"
+    ]
+  },
+  {
+    "wf": "CW-PMS-01",
+    "n": 5,
+    "frm": "Needs Revision",
+    "actor": "Applicant",
+    "uc": "UC-PMS-005 / Revise and Resubmit Application",
+    "guard": "Valid resubmission within 60 days",
+    "to": "Resubmitted",
+    "br": "BR-PMS-033; BR-PMS-035; BR-PMS-036",
+    "brs": [
+      "BR-PMS-033",
+      "BR-PMS-035",
+      "BR-PMS-036"
+    ]
+  },
+  {
+    "wf": "CW-PMS-01",
+    "n": 6,
+    "frm": "Resubmitted",
+    "actor": "PCC_ADMIN",
+    "uc": "UC-PMS-007 / Assign Application to Director",
+    "guard": "Valid assignment/reassignment",
+    "to": "Under Review",
+    "br": "BR-PMS-023; BR-PMS-024; BR-PMS-025",
+    "brs": [
+      "BR-PMS-023",
+      "BR-PMS-024",
+      "BR-PMS-025"
+    ]
+  },
+  {
+    "wf": "CW-PMS-01",
+    "n": 7,
+    "frm": "Under Review",
+    "actor": "Director",
+    "uc": "UC-PMS-008 / Review Patent Application",
+    "guard": "Reject",
+    "to": "Rejected",
+    "br": "BR-PMS-029; BR-PMS-030; BR-PMS-031",
+    "brs": [
+      "BR-PMS-029",
+      "BR-PMS-030",
+      "BR-PMS-031"
+    ]
+  },
+  {
+    "wf": "CW-PMS-01",
+    "n": 8,
+    "frm": "Rejected",
+    "actor": "Applicant",
+    "uc": "UC-PMS-022 / File Appeal Against Rejection",
+    "guard": "Eligible appeal filed",
+    "to": "Appeal Submitted",
+    "br": "BR-PMS-092; BR-PMS-093; BR-PMS-094",
+    "brs": [
+      "BR-PMS-092",
+      "BR-PMS-093",
+      "BR-PMS-094"
+    ]
+  },
+  {
+    "wf": "CW-PMS-01",
+    "n": 9,
+    "frm": "Appeal Submitted",
+    "actor": "Director",
+    "uc": "UC-PMS-023 / Review Appeal",
+    "guard": "Uphold Rejection",
+    "to": "Rejection Upheld",
+    "br": "BR-PMS-095",
+    "brs": [
+      "BR-PMS-095"
+    ]
+  },
+  {
+    "wf": "CW-PMS-01",
+    "n": 10,
+    "frm": "Appeal Submitted",
+    "actor": "Director",
+    "uc": "UC-PMS-023 / Review Appeal",
+    "guard": "Remand for Amendment",
+    "to": "Remanded for Amendment",
+    "br": "BR-PMS-095",
+    "brs": [
+      "BR-PMS-095"
+    ]
+  },
+  {
+    "wf": "CW-PMS-01",
+    "n": 11,
+    "frm": "Appeal Submitted",
+    "actor": "Director",
+    "uc": "UC-PMS-023 / Review Appeal",
+    "guard": "Modify Decision",
+    "to": "Decision Modified",
+    "br": "BR-PMS-095",
+    "brs": [
+      "BR-PMS-095"
+    ]
+  },
+  {
+    "wf": "CW-PMS-02",
+    "n": 1,
+    "frm": "Approved",
+    "actor": "PCC_ADMIN",
+    "uc": "UC-PMS-010 / Assign Attorney to Approved Application",
+    "guard": "Valid Attorney assignment",
+    "to": "Assignment Offered",
+    "br": "BR-PMS-040; BR-PMS-041; BR-PMS-044; BR-PMS-127",
+    "brs": [
+      "BR-PMS-040",
+      "BR-PMS-041",
+      "BR-PMS-044",
+      "BR-PMS-127"
+    ]
+  },
+  {
+    "wf": "CW-PMS-02",
+    "n": 2,
+    "frm": "Assignment Offered",
+    "actor": "Attorney",
+    "uc": "UC-PMS-011 / Accept or Decline Attorney Assignment",
+    "guard": "Accept",
+    "to": "Attorney Assigned",
+    "br": "N/A",
+    "brs": []
+  },
+  {
+    "wf": "CW-PMS-02",
+    "n": 3,
+    "frm": "Assignment Offered",
+    "actor": "Attorney",
+    "uc": "UC-PMS-011 / Accept or Decline Attorney Assignment",
+    "guard": "Decline",
+    "to": "Pending Review",
+    "br": "N/A",
+    "brs": []
+  },
+  {
+    "wf": "CW-PMS-02",
+    "n": 4,
+    "frm": "Pending Review",
+    "actor": "PCC_ADMIN",
+    "uc": "UC-PMS-010 / Assign Attorney to Approved Application",
+    "guard": "Valid reassignment",
+    "to": "Assignment Offered",
+    "br": "BR-PMS-040; BR-PMS-041; BR-PMS-044",
+    "brs": [
+      "BR-PMS-040",
+      "BR-PMS-041",
+      "BR-PMS-044"
+    ]
+  },
+  {
+    "wf": "CW-PMS-02",
+    "n": 5,
+    "frm": "Approved",
+    "actor": "Director",
+    "uc": "UC-PMS-009 / Review and Decide Patent Budget",
+    "guard": "Budget approved",
+    "to": "Budget Approved",
+    "br": "BR-PMS-052; BR-PMS-053",
+    "brs": [
+      "BR-PMS-052",
+      "BR-PMS-053"
+    ]
+  },
+  {
+    "wf": "CW-PMS-02",
+    "n": 6,
+    "frm": "Approved",
+    "actor": "Director",
+    "uc": "UC-PMS-009 / Review and Decide Patent Budget",
+    "guard": "Budget rejected",
+    "to": "Budget Rejected",
+    "br": "BR-PMS-052",
+    "brs": [
+      "BR-PMS-052"
+    ]
+  },
+  {
+    "wf": "CW-PMS-02",
+    "n": 7,
+    "frm": "Approved",
+    "actor": "Director",
+    "uc": "UC-PMS-009 / Review and Decide Patent Budget",
+    "guard": "Cost exceeds threshold",
+    "to": "Escalated",
+    "br": "BR-PMS-051; BR-PMS-052",
+    "brs": [
+      "BR-PMS-051",
+      "BR-PMS-052"
+    ]
+  },
+  {
+    "wf": "CW-PMS-02",
+    "n": 8,
+    "frm": "Escalated",
+    "actor": "PCC_ADMIN",
+    "uc": "UC-PMS-027 / Monitor Workflow and Handle Exceptional Cases",
+    "guard": "Handle/route escalation within PMS scope",
+    "to": "Escalation Tracked / External Decision Pending",
+    "br": "BR-PMS-051",
+    "brs": [
+      "BR-PMS-051"
+    ]
+  },
+  {
+    "wf": "CW-PMS-02",
+    "n": 9,
+    "frm": "Pre-Filing Preconditions Satisfied",
+    "actor": "Attorney",
+    "uc": "UC-PMS-013 / Prepare and Record External Patent Filing",
+    "guard": "Required approvals/budget/agreement/format conditions satisfied",
+    "to": "Filed",
+    "br": "BR-PMS-020; BR-PMS-055; BR-PMS-056; BR-PMS-128",
+    "brs": [
+      "BR-PMS-020",
+      "BR-PMS-055",
+      "BR-PMS-056",
+      "BR-PMS-128"
+    ]
+  },
+  {
+    "wf": "CW-PMS-03",
+    "n": 1,
+    "frm": "Filed / Post-Filing Active",
+    "actor": "Attorney",
+    "uc": "UC-PMS-014 / Record Patent Office Communication",
+    "guard": "Office action received",
+    "to": "Office Action Recorded",
+    "br": "BR-PMS-138; BR-PMS-142",
+    "brs": [
+      "BR-PMS-138",
+      "BR-PMS-142"
+    ]
+  },
+  {
+    "wf": "CW-PMS-03",
+    "n": 2,
+    "frm": "Office Action Recorded",
+    "actor": "Attorney",
+    "uc": "UC-PMS-015 / Respond to Office Action",
+    "guard": "Applicant review required",
+    "to": "Awaiting Applicant Approval",
+    "br": "BR-PMS-146; BR-PMS-066",
+    "brs": [
+      "BR-PMS-146",
+      "BR-PMS-066"
+    ]
+  },
+  {
+    "wf": "CW-PMS-03",
+    "n": 3,
+    "frm": "Awaiting Applicant Approval",
+    "actor": "Applicant",
+    "uc": "UC-PMS-029 / Review Office-Action Response",
+    "guard": "Approve",
+    "to": "Applicant Approved",
+    "br": "BR-PMS-146",
+    "brs": [
+      "BR-PMS-146"
+    ]
+  },
+  {
+    "wf": "CW-PMS-03",
+    "n": 4,
+    "frm": "Applicant Approved",
+    "actor": "Attorney",
+    "uc": "UC-PMS-015 / Respond to Office Action",
+    "guard": "Submit within deadline/permitted extension",
+    "to": "Response Submitted",
+    "br": "BR-PMS-065; BR-PMS-066",
+    "brs": [
+      "BR-PMS-065",
+      "BR-PMS-066"
+    ]
+  },
+  {
+    "wf": "CW-PMS-03",
+    "n": 5,
+    "frm": "Office Action Recorded",
+    "actor": "Attorney",
+    "uc": "UC-PMS-015 / Respond to Office Action",
+    "guard": "Applicant review not required",
+    "to": "Response Ready",
+    "br": "BR-PMS-146; BR-PMS-066",
+    "brs": [
+      "BR-PMS-146",
+      "BR-PMS-066"
+    ]
+  },
+  {
+    "wf": "CW-PMS-03",
+    "n": 6,
+    "frm": "Response Ready",
+    "actor": "Attorney",
+    "uc": "UC-PMS-015 / Respond to Office Action",
+    "guard": "Submit within deadline/permitted extension",
+    "to": "Response Submitted",
+    "br": "BR-PMS-065; BR-PMS-066",
+    "brs": [
+      "BR-PMS-065",
+      "BR-PMS-066"
+    ]
+  },
+  {
+    "wf": "CW-PMS-04",
+    "n": 1,
+    "frm": "Granted / Maintenance Cycle Active",
+    "actor": "Attorney",
+    "uc": "UC-PMS-017 / Manage Post-Grant Tracking and Maintenance",
+    "guard": "Decision due",
+    "to": "Renewal Decision Requested",
+    "br": "BR-PMS-059; BR-PMS-060; BR-PMS-061",
+    "brs": [
+      "BR-PMS-059",
+      "BR-PMS-060",
+      "BR-PMS-061"
+    ]
+  },
+  {
+    "wf": "CW-PMS-04",
+    "n": 2,
+    "frm": "Renewal Decision Requested",
+    "actor": "Director",
+    "uc": "UC-PMS-018 / Make Maintenance Renewal Decision",
+    "guard": "Renew",
+    "to": "Renewal Approved",
+    "br": "BR-PMS-061",
+    "brs": [
+      "BR-PMS-061"
+    ]
+  },
+  {
+    "wf": "CW-PMS-04",
+    "n": 3,
+    "frm": "Renewal Approved",
+    "actor": "Attorney",
+    "uc": "UC-PMS-017 / Manage Post-Grant Tracking and Maintenance",
+    "guard": "Maintenance action recorded",
+    "to": "Renewed / Next Cycle Scheduled",
+    "br": "BR-PMS-060",
+    "brs": [
+      "BR-PMS-060"
+    ]
+  },
+  {
+    "wf": "CW-PMS-04",
+    "n": 4,
+    "frm": "Renewal Decision Requested",
+    "actor": "Director",
+    "uc": "UC-PMS-018 / Make Maintenance Renewal Decision",
+    "guard": "Do Not Renew",
+    "to": "Do Not Renew",
+    "br": "BR-PMS-061",
+    "brs": [
+      "BR-PMS-061"
+    ]
+  },
+  {
+    "wf": "CW-PMS-05",
+    "n": 1,
+    "frm": "Submitted",
+    "actor": "Applicant",
+    "uc": "UC-PMS-006 / Withdraw Patent Application",
+    "guard": "Before filing AND current state is configured/defined as withdrawal-eligible",
+    "to": "Withdrawn",
+    "br": "BR-PMS-067; BR-PMS-068; BR-PMS-069; BR-PMS-070",
+    "brs": [
+      "BR-PMS-067",
+      "BR-PMS-068",
+      "BR-PMS-069",
+      "BR-PMS-070"
+    ]
+  },
+  {
+    "wf": "CW-PMS-05",
+    "n": 2,
+    "frm": "Under Review",
+    "actor": "Applicant",
+    "uc": "UC-PMS-006 / Withdraw Patent Application",
+    "guard": "Before filing AND current state is configured/defined as withdrawal-eligible",
+    "to": "Withdrawn",
+    "br": "BR-PMS-067; BR-PMS-068; BR-PMS-069; BR-PMS-070",
+    "brs": [
+      "BR-PMS-067",
+      "BR-PMS-068",
+      "BR-PMS-069",
+      "BR-PMS-070"
+    ]
+  },
+  {
+    "wf": "CW-PMS-05",
+    "n": 3,
+    "frm": "Needs Revision",
+    "actor": "Applicant",
+    "uc": "UC-PMS-006 / Withdraw Patent Application",
+    "guard": "Before filing AND current state is configured/defined as withdrawal-eligible",
+    "to": "Withdrawn",
+    "br": "BR-PMS-067; BR-PMS-068; BR-PMS-069; BR-PMS-070",
+    "brs": [
+      "BR-PMS-067",
+      "BR-PMS-068",
+      "BR-PMS-069",
+      "BR-PMS-070"
+    ]
+  },
+  {
+    "wf": "CW-PMS-05",
+    "n": 4,
+    "frm": "Rejected",
+    "actor": "Applicant",
+    "uc": "UC-PMS-006 / Withdraw Patent Application",
+    "guard": "Before filing AND current state is configured/defined as withdrawal-eligible",
+    "to": "Withdrawn",
+    "br": "BR-PMS-067; BR-PMS-068; BR-PMS-069; BR-PMS-070",
+    "brs": [
+      "BR-PMS-067",
+      "BR-PMS-068",
+      "BR-PMS-069",
+      "BR-PMS-070"
+    ]
+  },
+  {
+    "wf": "CW-PMS-05",
+    "n": 5,
+    "frm": "Approved",
+    "actor": "Applicant",
+    "uc": "UC-PMS-006 / Withdraw Patent Application",
+    "guard": "Before filing AND current state is configured/defined as withdrawal-eligible",
+    "to": "Withdrawn",
+    "br": "BR-PMS-067; BR-PMS-068; BR-PMS-069; BR-PMS-070",
+    "brs": [
+      "BR-PMS-067",
+      "BR-PMS-068",
+      "BR-PMS-069",
+      "BR-PMS-070"
+    ]
+  },
+  {
+    "wf": "CW-PMS-05",
+    "n": 6,
+    "frm": "Attorney Assigned",
+    "actor": "Applicant",
+    "uc": "UC-PMS-006 / Withdraw Patent Application",
+    "guard": "Before filing AND current state is configured/defined as withdrawal-eligible",
+    "to": "Withdrawn",
+    "br": "BR-PMS-067; BR-PMS-068; BR-PMS-069; BR-PMS-070",
+    "brs": [
+      "BR-PMS-067",
+      "BR-PMS-068",
+      "BR-PMS-069",
+      "BR-PMS-070"
+    ]
+  },
+  {
+    "wf": "CW-PMS-05",
+    "n": 7,
+    "frm": "Pending Review",
+    "actor": "Applicant",
+    "uc": "UC-PMS-006 / Withdraw Patent Application",
+    "guard": "Before filing AND current state is configured/defined as withdrawal-eligible",
+    "to": "Withdrawn",
+    "br": "BR-PMS-067; BR-PMS-068; BR-PMS-069; BR-PMS-070",
+    "brs": [
+      "BR-PMS-067",
+      "BR-PMS-068",
+      "BR-PMS-069",
+      "BR-PMS-070"
+    ]
+  }
+]
